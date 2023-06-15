@@ -72,6 +72,7 @@ namespace DiplomShop.Views.Windows
                     HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
                     HttpResponseMessage message1 = await httpClient.PostAsync($"http://localhost:63230/checkOrder?Id={contet.ID}", httpContent);
 
+
                 }
                 else
                 {
