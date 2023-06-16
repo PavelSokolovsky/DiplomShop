@@ -54,6 +54,7 @@ namespace DiplomShop.Views.Pages
         {
             InitializeComponent();
             GetOrderInfo();
+            //Проверка гита
         }
         public async void GetOrderInfo()
         {
@@ -91,7 +92,7 @@ namespace DiplomShop.Views.Pages
             }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/selectedDate?userId={AuthWindow.users.id}&orderDate={datePicker.SelectedDate}");
             if (message.IsSuccessStatusCode)
