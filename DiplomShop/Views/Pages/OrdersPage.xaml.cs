@@ -30,11 +30,17 @@ namespace DiplomShop.Views.Pages
         public static HttpClient httpClient = new HttpClient();
         public static List<Models.Orders> listOrders;
         public static List<Models.OrdersSelectedDate> listOrders2;
-        public static List<Models.ProductsInOrders> productsInOrders;
+        public static List<Models.ProductsInOrderView> productsInOrderView;
+        
         
         public class UserData4
         {
             public int id { get; set; }
+            public int idOrder {get; set; }
+        }
+        public class UserData10
+        {
+            public int IdUser { get; set; }
         }
         public class DateSelect
         {
@@ -49,9 +55,7 @@ namespace DiplomShop.Views.Pages
         public async void GetOrderInfo()
         {
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            var contet = new UserData4 { id = 1 };
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/myOrders", httpContent);
+            HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/myOrders?Id={AuthWindow.users.id}");
             if (message.IsSuccessStatusCode)
             {
                 var curContent = await message.Content.ReadAsStringAsync();
@@ -61,20 +65,26 @@ namespace DiplomShop.Views.Pages
         }
 
         private async void dataGridOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-         
-    
-              
+            {
+            var selectedOrder = dataGridOrder.SelectedItem as Models.Orders;
+            if (selectedOrder != null)
+            {
+
+                int orderId = selectedOrder.Id;
+                int userId = selectedOrder.idUsers;
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                var contet = new UserData4 { id=18 };
+                var contet = new UserData4 { id = userId, idOrder = orderId };
                 HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
                 HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/productsInOrders", httpContent);
                 if (message.IsSuccessStatusCode)
                 {
                     var curContent = await message.Content.ReadAsStringAsync();
-                    productsInOrders = JsonConvert.DeserializeObject<List<Models.ProductsInOrders>>(curContent);
-                    dataGridProducts.ItemsSource = productsInOrders;
+                    productsInOrderView = JsonConvert.DeserializeObject<List<Models.ProductsInOrderView>>(curContent);
+                    dataGridProducts.ItemsSource = productsInOrderView;
                 }
+
+            }
+                
             }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -101,6 +111,11 @@ namespace DiplomShop.Views.Pages
             }
 
         }
+
+        private void dataGridProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
+    }
     }
     

@@ -16,16 +16,29 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="2">
-            <DataGrid Name="dataGridProducts"  AutoGenerateColumns="False" Margin="5">
+            <DataGrid Name="dataGridProducts"  AutoGenerateColumns="False" Margin="5" SelectionChanged="dataGridProducts_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Название продукта" Binding="{Binding Product.name}" Width="*"/>
-                    <DataGridTextColumn Header="Количество в заказе" Binding="{Binding AmountInOrder}" Width="*"/>
+                    <DataGridTextColumn Header="Название продукта" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Количество в заказе" Binding="{Binding amountInOrder}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" >
             <DatePicker  Name="datePicker"/>
-            <Button  Content="Показать" Click="Button_Click"/>
+            <Button   Margin="0 40 0 0" Click="Button_Click" Width="100" Height="100" FontSize="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/Resourses/Images/free-icon-search-3252607.png" />
+
+                            </Grid.Background>
+                            <Ellipse />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>

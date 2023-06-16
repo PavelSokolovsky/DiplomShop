@@ -38,10 +38,29 @@ namespace DiplomShop.Views.Pages
 
         private async void SaveAmountBtn_Click(object sender, RoutedEventArgs e)
         {
-            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
-            var contet = new UserData2 { barcode = barcodeTextBox.Text, amountMax = Convert.ToInt32(maxAmountTextBox.Text), amountMin = Convert.ToInt32(minAmountTextBox.Text), id = 1 };
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.PutAsync("http://localhost:63230/changeAmount", httpContent);
+            if (string.IsNullOrEmpty(barcodeTextBox.Text) || string.IsNullOrEmpty(maxAmountTextBox.Text) || string.IsNullOrEmpty(minAmountTextBox.Text))
+
+            {
+                MessageBox.Show("Поля Ввода не заполнены");
+            }
+            else 
+            {
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
+                var contet = new UserData2 { barcode = barcodeTextBox.Text, amountMax = Convert.ToInt32(maxAmountTextBox.Text), amountMin = Convert.ToInt32(minAmountTextBox.Text), id = 1 };
+                HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
+                HttpResponseMessage message = await httpClient.PutAsync("http://localhost:63230/changeAmount", httpContent);
+                if (message.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Настройки успешно применены, загляните в список товаров");
+                }
+                else 
+                {
+                    MessageBox.Show("Настройки не были изменены, что то пошло не так");
+                }
+                
+            }
+            
+
         }
     }
 }

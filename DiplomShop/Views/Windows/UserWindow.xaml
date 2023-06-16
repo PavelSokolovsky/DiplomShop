@@ -7,20 +7,134 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resourses/Images/vegano-e1494019583511.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                <Button  Name="MyProducts" Click="MyProducts_Click" Margin="10" Padding="20" Height="80" Width="80">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-shopping-bag-3514211.png" />
+
+
+                                </Grid.Background>
+                                <Ellipse/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Мои Продукты" HorizontalContentAlignment="Center" FontSize="21">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                    </Label.Foreground>
+                    <Label.FontWeight>
+                        <FontWeight>Bold</FontWeight>
+                    </Label.FontWeight>
+                    <Label.Effect>
+                        <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1">
+                <Button  Name="ChangeAmount" Click ="ChangeAmount_Click" Margin="10" Padding="20" Height="80" Width="80">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+
+                                </Grid.Background>
+                                <Ellipse/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Параметры" HorizontalContentAlignment="Center" FontSize="21">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                    </Label.Foreground>
+                    <Label.FontWeight>
+                        <FontWeight>Bold</FontWeight>
+                    </Label.FontWeight>
+                    <Label.Effect>
+                        <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="2">
+                <Button  Name="OrdersHistory" Click="OrdersHistory_Click" Margin="10" Padding="20" Height="80" Width="80">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+
+                                </Grid.Background>
+                                <Ellipse/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Заказы" HorizontalContentAlignment="Center" FontSize="21">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                    </Label.Foreground>
+                    <Label.FontWeight>
+                        <FontWeight>Bold</FontWeight>
+                    </Label.FontWeight>
+                    <Label.Effect>
+                        <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="3">
+                <Button  Name="ExitBtn" Margin="10" Padding="20" Height="80" Width="80">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+
+                                </Grid.Background>
+                                <Ellipse/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Label Content="Выход" HorizontalContentAlignment="Center" FontSize="21">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                    </Label.Foreground>
+                    <Label.FontWeight>
+                        <FontWeight>Bold</FontWeight>
+                    </Label.FontWeight>
+                    <Label.Effect>
+                        <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </StackPanel>
+            
+        </Grid>
 
         <Frame x:Name="frame" Grid.Row="0" NavigationUIVisibility="Hidden"/>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Мои материалы"  Name="MyProducts" Click="MyProducts_Click" />
-            <Button Content="Изменить материалы"  Name="ChangeAmount" Click ="ChangeAmount_Click" />
-            <Button Content="Заказы"  Name="OrdersHistory" Click="OrdersHistory_Click"/>
-            <Button Content="Выход" Name="ExitBtn" />
-
-        </StackPanel>
+       
     </Grid>
 </Window>

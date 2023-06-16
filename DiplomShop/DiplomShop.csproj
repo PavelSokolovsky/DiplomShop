@@ -35,11 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,7 +73,10 @@
     </Compile>
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\OrdersSelectedDate.cs" />
+    <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductsInOrders.cs" />
+    <Compile Include="Models\ProductsInOrderView.cs" />
+    <Compile Include="Models\ProductsView.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\UsersProducts.cs" />
     <Compile Include="Views\Pages\ChangeAmountPage.xaml.cs">
@@ -110,7 +122,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resourses\Icons\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Pages\ChangeAmountPage.xaml">
       <SubType>Designer</SubType>
@@ -132,6 +146,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\fon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\vegano-e1494019583511.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\postman-courier.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-power-1741617.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\Снимок экрана 2023-06-15 222023 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-shopping-bag-3514211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-search-3252607.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

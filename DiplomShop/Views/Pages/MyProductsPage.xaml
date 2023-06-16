@@ -17,14 +17,14 @@
 
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="5">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название продукта"  Width="*"/>
+                <DataGridTextColumn Header="Название продукта"  Width="*" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Максимальное ко-во" Binding="{Binding amountMax}" Width="*"/>
-                <DataGridTextColumn Header="Текущее кол-во" Width="*"/>
-                <DataGridTextColumn Header="Минимальное кол-во" Width="*"/>
+                <DataGridTextColumn Header="Текущее кол-во" Width="*" Binding="{Binding amountCurrent}"/>
+                <DataGridTextColumn Header="Минимальное кол-во" Width="*" Binding="{Binding amountMin}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1">
-            <Button Content="Скан"  Name="ScanBtn" Click="ScanBtn_Click"/>
+            <Button Content="Скан" Width="100" Name="ScanBtn" Click="ScanBtn_Click"/>
             <TextBox Width="100" Margin="5" Name="txtBoxBarcode" />
         </StackPanel>
     </Grid>

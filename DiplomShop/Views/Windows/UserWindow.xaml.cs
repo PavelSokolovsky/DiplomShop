@@ -30,6 +30,7 @@ namespace DiplomShop.Views.Windows
         public static OrdersPage ordderstPage = new OrdersPage();
         public static HttpClient httpClient = new HttpClient();
         private System.Timers.Timer timer;
+        OrdersPage ordersPage = new OrdersPage();
         public class UserId
         {
             public int ID { get; set; }
@@ -46,7 +47,7 @@ namespace DiplomShop.Views.Windows
             
             
             timer = new System.Timers.Timer();
-            timer.Interval = 4000;
+            timer.Interval = 30000;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
@@ -55,12 +56,15 @@ namespace DiplomShop.Views.Windows
             Dispatcher.Invoke(() =>
             {
                 GetOrderResult();
+                
+
+
             });
         }
         public async void GetOrderResult()
         {
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
-            HttpResponseMessage message = await httpClient.GetAsync("http://localhost:63230/getInfoIsActiveOrder?Id=1");
+            HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/getInfoIsActiveOrder?Id={1}");
             if (message.IsSuccessStatusCode)
             {
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
@@ -89,10 +93,10 @@ namespace DiplomShop.Views.Windows
                 {
                     return;
                 }
-                else
-                {
-                    MessageBox.Show("Ошибка");
-                }
+                //else
+                //{
+                //    MessageBox.Show("Ошибка");
+                //}
             }
         }
 

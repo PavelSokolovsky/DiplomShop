@@ -8,22 +8,65 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChangeAmountPage">
 
-    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00FFFFFF">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00FFFFFF">
 
-        <StackPanel Margin="5">
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-                <TextBlock Text="Штрихкод:" VerticalAlignment="Center" Margin="0 0 5 0"/>
-                <TextBox x:Name="barcodeTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-                <TextBlock Text="Максимальное количество:" VerticalAlignment="Center" Margin="0 0 5 0"/>
-                <TextBox x:Name="maxAmountTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-                <TextBlock Text="Минимальное количество:" VerticalAlignment="Center" Margin="0 0 5 0"/>
-                <TextBox x:Name="minAmountTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            </StackPanel>
-            <Button Content="Применить" Name="SaveAmountBtn" Click="SaveAmountBtn_Click" />
+      
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5">
+            <Label Content="Штрих-код товара" HorizontalContentAlignment="Center" FontSize="15">
+                <Label.Foreground>
+                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                </Label.Foreground>
+                <Label.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Label.FontWeight>
+                <Label.Effect>
+                    <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="barcodeTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+            <Label Content="Установить максимум" HorizontalContentAlignment="Center" FontSize="15">
+                <Label.Foreground>
+                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                </Label.Foreground>
+                <Label.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Label.FontWeight>
+                <Label.Effect>
+                    <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="maxAmountTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+
+            <Label Content="Установить минимум" HorizontalContentAlignment="Center" FontSize="15">
+                <Label.Foreground>
+                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                </Label.Foreground>
+                <Label.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Label.FontWeight>
+                <Label.Effect>
+                    <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="minAmountTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+            <Button Content="Применить" Name="SaveAmountBtn" Click="SaveAmountBtn_Click" Height="100" Width="100">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+
+                            </Grid.Background>
+                            <Ellipse/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

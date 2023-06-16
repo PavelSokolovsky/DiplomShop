@@ -37,23 +37,32 @@ namespace DiplomShop.Views.Windows
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
-            var contet = new UserData { login = txtLogin.Text, password = txtPassword.Password };
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/auth", httpContent);
-            if (message.IsSuccessStatusCode)
-            {
-                var curContent = await message.Content.ReadAsStringAsync();
-                users = JsonConvert.DeserializeObject<Users>(curContent);
+            if(string.IsNullOrEmpty(txtLogin.Text) || string.IsNullOrEmpty(txtPassword.Password))
                 
-                UserWindow userWindow = new UserWindow();
-                userWindow.Show();
-                Close();
+            {
+                MessageBox.Show("Поля Ввода не заполнены");
             }
             else
             {
-                MessageBox.Show("Ошибка Входа");
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
+                var contet = new UserData { login = txtLogin.Text, password = txtPassword.Password };
+                HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
+                HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/auth", httpContent);
+                if (message.IsSuccessStatusCode)
+                {
+                    var curContent = await message.Content.ReadAsStringAsync();
+                    users = JsonConvert.DeserializeObject<Users>(curContent);
+
+                    UserWindow userWindow = new UserWindow();
+                    userWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка Входа");
+                }
             }
+            
         }
     }
 }
