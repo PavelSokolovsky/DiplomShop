@@ -171,5 +171,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-settings-981034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-shopping-list-7662141.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\1614412046_18-p-ovoshchi-na-temnom-fone-30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Images\free-icon-bookmarking-9167556.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

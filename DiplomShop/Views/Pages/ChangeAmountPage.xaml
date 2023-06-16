@@ -52,13 +52,24 @@
                 </Label.Effect>
             </Label>
             <TextBox x:Name="minAmountTextBox" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" />
-
-            <Button Content="Применить" Name="SaveAmountBtn" Click="SaveAmountBtn_Click" Height="100" Width="100">
+            <Label Content="Сохранить" HorizontalContentAlignment="Center" FontSize="18">
+                <Label.Foreground>
+                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.9"/>
+                </Label.Foreground>
+                <Label.FontWeight>
+                    <FontWeight>Bold</FontWeight>
+                </Label.FontWeight>
+                <Label.Effect>
+                    <DropShadowEffect Color="Red" Direction="315" ShadowDepth="2" Opacity="0.9"/>
+                </Label.Effect>
+            </Label>
+            <Button  Margin="0 0 0 0" Name="SaveAmountBtn" Click="SaveAmountBtn_Click" Height="100" Width="100">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>
                             <Grid.Background>
-                                <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+                                <ImageBrush ImageSource="/Resourses/Images/free-icon-bookmarking-9167556.png" />
+
 
                             </Grid.Background>
                             <Ellipse/>
@@ -67,6 +78,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+                
         </StackPanel>
     </Grid>
 </Page>

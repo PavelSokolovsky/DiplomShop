@@ -8,7 +8,8 @@
         Title="UserWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resourses/Images/vegano-e1494019583511.jpg" />
+            <ImageBrush ImageSource="/Resourses/Images/1614412046_18-p-ovoshchi-na-temnom-fone-30.jpg" />
+
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -55,7 +56,7 @@
                         <ControlTemplate TargetType="Button">
                             <Grid>
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-settings-981034.png" />
 
                                 </Grid.Background>
                                 <Ellipse/>
@@ -82,7 +83,8 @@
                         <ControlTemplate TargetType="Button">
                             <Grid>
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-power-1741617.png" />
+                                    <ImageBrush ImageSource="/Resourses/Images/free-icon-shopping-list-7662141.png" />
+
 
                                 </Grid.Background>
                                 <Ellipse/>
@@ -104,7 +106,7 @@
                 </Label>
             </StackPanel>
             <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="3">
-                <Button  Name="ExitBtn" Margin="10" Padding="20" Height="80" Width="80">
+                <Button  Name="ExitBtn" Margin="10" Padding="20" Height="80" Width="80" Click="ExitBtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Grid>

@@ -114,5 +114,10 @@ namespace DiplomShop.Views.Windows
         {
             frame.Content = ordderstPage;
         }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
