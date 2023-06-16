@@ -33,6 +33,7 @@ namespace DiplomShop.Views.Windows
         public AuthWindow()
         {
             InitializeComponent();
+
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

@@ -8,10 +8,10 @@ namespace DiplomShop.Models
 {
     public partial class OrdersSelectedDate
     {
-        public int Id2 { get; set; }
-        public int idUsers2 { get; set; }
-        public DateTime OrderDate2 { get; set; }
-        public decimal Price2 { get; set; }
-        public bool IsActive2 { get; set; }
+        public int Id { get; set; }
+        public int idUsers { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal Price { get; set; }
+        public bool IsActive { get; set; }
     }
 }

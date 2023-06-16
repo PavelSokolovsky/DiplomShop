@@ -44,7 +44,10 @@ namespace DiplomShop.Views.Pages
         }
         public class DateSelect
         {
-            public DateTime dataZakaza { get; set; }
+            public DateTime orderDate{ get; set; }
+            public int userId { get; set; }
+            public int orderId { get; set; }
+
         }
 
         public OrdersPage()
@@ -89,25 +92,13 @@ namespace DiplomShop.Views.Pages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            //httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaton/json"));
-            //var contet = new DateSelect { dataZakaza =  (DateTime)datePicker.SelectedDate};
-            //HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
-            //HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/selectedDate", httpContent);
-            //if (message.IsSuccessStatusCode)
-            //{
-            //    var curContent = await message.Content.ReadAsStringAsync();
-            //    listOrders = JsonConvert.DeserializeObject<List<Models.Orders>>(curContent);
-            //    dataGridOrder.ItemsSource = listOrders;
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            var contet = new DateSelect { dataZakaza = (DateTime)datePicker.SelectedDate };
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(contet), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:63230/selectedDate", httpContent);
+            HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/selectedDate?userId={AuthWindow.users.id}&orderDate={datePicker.SelectedDate}");
             if (message.IsSuccessStatusCode)
             {
                 var curContent = await message.Content.ReadAsStringAsync();
                 listOrders2 = JsonConvert.DeserializeObject<List<Models.OrdersSelectedDate>>(curContent);
-                dataGridOrder2.ItemsSource = listOrders2;
+                dataGridOrder.ItemsSource = listOrders2;
             }
 
         }

@@ -53,8 +53,8 @@
             </DataGrid>
             <DataGrid x:Name="dataGridOrder2" AutoGenerateColumns="False" Margin="5" Grid.Row="1">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Дата" Binding="{Binding OrderDate2}" Width="*"/>
-                    <DataGridTextColumn Header="Активность" Binding="{Binding IsActive2}" Width="*"/>
+                    <DataGridTextColumn Header="Дата" Binding="{Binding OrderDate}" Width="*"/>
+                    <DataGridTextColumn Header="Активность" Binding="{Binding IsActive}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

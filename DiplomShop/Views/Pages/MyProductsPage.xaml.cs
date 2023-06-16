@@ -1,4 +1,5 @@
 ﻿using DiplomShop.Models;
+using DiplomShop.Views.Windows;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ namespace DiplomShop.Views.Pages
         {
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(usersProducts), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/myProducts?IdUser={1}");
+            HttpResponseMessage message = await httpClient.GetAsync($"http://localhost:63230/myProducts?IdUser={AuthWindow.users.id}");
                 if (message.IsSuccessStatusCode)
             {
                 var curContent = await message.Content.ReadAsStringAsync();
